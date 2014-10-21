@@ -14,3 +14,7 @@ hs_err_pid*
 /Composition/build/
 /Collections/nbproject/private/
 /Collections/build/
+/Collections/dist/
+/Streams/nbproject/private/
+/Streams/build/
+/Streams/dist/
