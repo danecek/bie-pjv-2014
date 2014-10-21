@@ -14,9 +14,9 @@ import java.util.Arrays;
 public class MyOrderedArraySet extends MyArraySet {
 
     @Override
-    public boolean add(MyPoint mp) {
+    public boolean add(Object mp) {
         fixCapacity();
-        MyPoint[] data = getData();
+        Object[] data = getData();
         int index = Arrays.binarySearch(data, 0, size, mp);
         if (index >= 0 && index < size) {
             if (data[index].equals(mp)) {
@@ -33,7 +33,7 @@ public class MyOrderedArraySet extends MyArraySet {
     @Override
     public boolean contains(Object o
     ) {
-        MyPoint[] data = getData();
+        Object[] data = getData();
         int index = Arrays.binarySearch(data, 0, size, o);
         if (index >= 0 && index < size()) {
             if (data[index].equals(o)) {
