@@ -1,0 +1,69 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package streams;
+
+/**
+ *
+ * @author danecek
+ */
+public class MyPoint implements Comparable<MyPoint> {
+
+    private int x;
+    private int y;
+
+    public MyPoint(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[%d, %d]", x, y);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != MyPoint.class) {
+            return false;
+        }
+        MyPoint that = (MyPoint) o;
+        return that.x == x && that.y == y;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + this.x;
+        hash = 89 * hash + this.y;
+        return hash;
+    }
+
+    @Override
+    public int compareTo(MyPoint mp) {
+        if (x == mp.x) {
+            return y - mp.y;
+        }
+        return x - mp.x;
+    }
+
+    /**
+     * @return the x
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
+     * @return the y
+     */
+    public int getY() {
+        return y;
+    }
+
+}
