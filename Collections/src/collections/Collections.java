@@ -14,10 +14,6 @@ import java.util.Set;
  */
 public class Collections {
 
-    /**
-     * @param args the command line arguments
-     *
-     */
     static void test(Set<Object> set, int exps) {
         int max = 1000;
         Random r = new Random(1);
@@ -30,9 +26,10 @@ public class Collections {
             set.add(mp);
         }
         long time = System.currentTimeMillis() - start;
-        System.out.printf("time: %d ms,  final size: %d\n", time, set.size());
+        System.out.printf("#exps: %d, time: %d ms,  final size: %d\n", exps, time, set.size());
 
     }
+
     public static void main(String[] args) {
         MyArraySet mas = new MyArraySet(1);
 //        System.out.println(ms);
@@ -54,6 +51,9 @@ public class Collections {
 //        moas.add(new MyPoint(1, 3));
 //        System.out.println(moas);
         int ne = 100000;
+        test(mas, ne);
+        test(moas, ne);
+        ne = 200000;
         test(mas, ne);
         test(moas, ne);
     }

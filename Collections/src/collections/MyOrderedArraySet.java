@@ -31,8 +31,7 @@ public class MyOrderedArraySet extends MyArraySet {
     }
 
     @Override
-    public boolean contains(Object o
-    ) {
+    public boolean contains(Object o) {
         Object[] data = getData();
         int index = Arrays.binarySearch(data, 0, size, o);
         if (index >= 0 && index < size()) {

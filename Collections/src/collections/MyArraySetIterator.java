@@ -7,9 +7,8 @@ package collections;
 
 import java.util.Iterator;
 
-
 public class MyArraySetIterator implements Iterator<Object> {
-    
+
     int actualElementIndex;
     MyArraySet mas;
 
@@ -31,5 +30,5 @@ public class MyArraySetIterator implements Iterator<Object> {
     public void remove() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
