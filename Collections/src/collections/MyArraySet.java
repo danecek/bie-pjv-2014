@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-public class MyArraySet implements Set<MyPoint> {
+public class MyArraySet implements Set<Object> {
 
-    private MyPoint[] data;
+    protected Object[] data;
     protected int size;
 
     public MyArraySet(int capacity) {
@@ -33,7 +33,7 @@ public class MyArraySet implements Set<MyPoint> {
     }
 
     @Override
-    public Iterator<MyPoint> iterator() {
+    public Iterator<Object> iterator() {
         return new MyArraySetIterator(this);
     }
 
@@ -65,22 +65,16 @@ public class MyArraySet implements Set<MyPoint> {
     }
 
     @Override
-    public boolean add(MyPoint mp) {
+    public boolean add(Object mp) {
         if (contains(mp)) {
             return false;
         }
         fixCapacity();
-//        if (full()) {
-//            int newCapacity = (int) (data.length * 1.5) + 1;
-//            MyPoint[] newData = new MyPoint[newCapacity];
-//            System.arraycopy(data, 0, newData, 0, size);
-//            data = newData;
-//        }
         data[size++] = mp;
         return true;
     }
 
-    private int find(Object o) {
+    protected int find(Object o) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(o)) {
                 return i;
@@ -111,9 +105,9 @@ public class MyArraySet implements Set<MyPoint> {
     }
 
     @Override
-    public boolean addAll(Collection<? extends MyPoint> clctn) {
+    public boolean addAll(Collection<? extends Object> c) {
         boolean changed = false;
-        for (MyPoint mp : clctn) {
+        for (Object mp : c) {
             changed |= add(mp);
         }
         return changed;
@@ -149,10 +143,7 @@ public class MyArraySet implements Set<MyPoint> {
         return sb.append(']').toString();
     }
 
-    /**
-     * @return the data
-     */
-    public MyPoint[] getData() { // reveal private contract !!!
+    public Object[] getData() { // reveal private contract !!!
         return data;
     }
 

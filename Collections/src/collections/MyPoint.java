@@ -33,7 +33,7 @@ public class MyPoint implements Comparable<MyPoint> {
             return false;
         }
         MyPoint that = (MyPoint) o;
-        return that.x == x && that.y == y;
+        return compareTo(that) == 0;
     }
 
     @Override

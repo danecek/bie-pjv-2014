@@ -8,7 +8,7 @@ package collections;
 import java.util.Iterator;
 
 
-public class MyArraySetIterator implements Iterator<MyPoint> {
+public class MyArraySetIterator implements Iterator<Object> {
     
     int actualElementIndex;
     MyArraySet mas;
@@ -23,7 +23,7 @@ public class MyArraySetIterator implements Iterator<MyPoint> {
     }
 
     @Override
-    public MyPoint next() {
+    public Object next() {
         return mas.getData()[actualElementIndex++];
     }
 

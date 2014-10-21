@@ -18,7 +18,7 @@ public class Collections {
      * @param args the command line arguments
      *
      */
-    static void test(Set<MyPoint> set, int exps) {
+    static void test(Set<Object> set, int exps) {
         int max = 1000;
         Random r = new Random(1);
         MyPoint[] ap = new MyPoint[exps];
@@ -33,7 +33,6 @@ public class Collections {
         System.out.printf("time: %d ms,  final size: %d\n", time, set.size());
 
     }
-
     public static void main(String[] args) {
         MyArraySet mas = new MyArraySet(1);
 //        System.out.println(ms);
@@ -54,10 +53,9 @@ public class Collections {
 //        moas.add(new MyPoint(1, 3));
 //        moas.add(new MyPoint(1, 3));
 //        System.out.println(moas);
-        int ne = 1000000;
+        int ne = 100000;
         test(mas, ne);
         test(moas, ne);
-
     }
 
 }
