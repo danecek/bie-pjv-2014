@@ -9,7 +9,7 @@ package collections;
  *
  * @author danecek
  */
-public class MyPoint {
+public class MyPoint implements Comparable<MyPoint> {
 
     int x;
     int y;
@@ -42,6 +42,14 @@ public class MyPoint {
         hash = 89 * hash + this.x;
         hash = 89 * hash + this.y;
         return hash;
+    }
+
+    @Override
+    public int compareTo(MyPoint mp) {
+        if (x == mp.x) {
+            return y - mp.y;
+        }
+        return x - mp.x;
     }
 
 }

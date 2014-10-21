@@ -5,7 +5,8 @@
  */
 package collections;
 
-import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
 
 /**
  *
@@ -15,22 +16,48 @@ public class Collections {
 
     /**
      * @param args the command line arguments
+     *
      */
+    static void test(Set<MyPoint> set, int exps) {
+        int max = 1000;
+        Random r = new Random(1);
+        MyPoint[] ap = new MyPoint[exps];
+        for (int i = 0; i < ap.length; i++) {
+            ap[i] = new MyPoint(r.nextInt(max), r.nextInt(max));
+        }
+        long start = System.currentTimeMillis();
+        for (MyPoint mp : ap) {
+            set.add(mp);
+        }
+        long time = System.currentTimeMillis() - start;
+        System.out.printf("time: %d ms,  final size: %d\n", time, set.size());
+
+    }
+
     public static void main(String[] args) {
-        MyArraySet ms = new MyArraySet(1);
-        System.out.println(ms);
-        ms.add(new MyPoint(1, 2));
-        System.out.println(ms);
-        ms.add(new MyPoint(1, 3));
-        System.out.println(ms);
-        System.out.println("***********************");
-        for (Iterator<MyPoint> it = ms.iterator(); it.hasNext();) {
-            System.out.println(it.next());
-        }
-        System.out.println("***********************");
-        for (MyPoint mp : ms) {
-            System.out.println(mp);
-        }
+        MyArraySet mas = new MyArraySet(1);
+//        System.out.println(ms);
+//        ms.add(new MyPoint(1, 2));
+//        System.out.println(ms);
+//        ms.add(new MyPoint(1, 3));
+//        System.out.println(ms);
+//        System.out.println("***********************");
+//        for (Iterator<MyPoint> it = ms.iterator(); it.hasNext();) {
+//            System.out.println(it.next());
+//        }
+//        System.out.println("***********************");
+//        for (MyPoint mp : ms) {
+//            System.out.println(mp);
+//        }
+        MyOrderedArraySet moas = new MyOrderedArraySet();
+//        moas.add(new MyPoint(1, 2));
+//        moas.add(new MyPoint(1, 3));
+//        moas.add(new MyPoint(1, 3));
+//        System.out.println(moas);
+        int ne = 1000000;
+        test(mas, ne);
+        test(moas, ne);
+
     }
 
 }

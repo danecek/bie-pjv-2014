@@ -7,7 +7,7 @@ import java.util.Set;
 public class MyArraySet implements Set<MyPoint> {
 
     private MyPoint[] data;
-    private int size;
+    protected int size;
 
     public MyArraySet(int capacity) {
         data = new MyPoint[capacity];
@@ -55,17 +55,27 @@ public class MyArraySet implements Set<MyPoint> {
         return size == data.length;
     }
 
-    @Override
-    public boolean add(MyPoint mp) {
-        if (contains(mp)) {
-            return false;
-        }
+    protected void fixCapacity() {
         if (full()) {
             int newCapacity = (int) (data.length * 1.5) + 1;
             MyPoint[] newData = new MyPoint[newCapacity];
             System.arraycopy(data, 0, newData, 0, size);
             data = newData;
         }
+    }
+
+    @Override
+    public boolean add(MyPoint mp) {
+        if (contains(mp)) {
+            return false;
+        }
+        fixCapacity();
+//        if (full()) {
+//            int newCapacity = (int) (data.length * 1.5) + 1;
+//            MyPoint[] newData = new MyPoint[newCapacity];
+//            System.arraycopy(data, 0, newData, 0, size);
+//            data = newData;
+//        }
         data[size++] = mp;
         return true;
     }
