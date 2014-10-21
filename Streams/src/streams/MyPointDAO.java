@@ -25,7 +25,7 @@ public class MyPointDAO {
         Collection<MyPoint> colpoints = nm.get(mp.getX());
         if (colpoints == null) {
             colpoints = new HashSet<>();
-         nm.put(mp.getX(), colpoints);
+            nm.put(mp.getX(), colpoints);
         }
         pointset.add(mp);
         colpoints.add(mp);
@@ -43,9 +43,10 @@ public class MyPointDAO {
     Collection<MyPoint> findPointOnX(int x) {
         return nm.get(x);
     }
-    
+
     Collection<MyPoint> findPointInArea(int xmin, int xmax, int ymin, int ymax) {
-        
+        return null;
+
     }
 
 }
