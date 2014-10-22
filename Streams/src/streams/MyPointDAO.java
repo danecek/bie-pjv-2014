@@ -18,30 +18,30 @@ import java.util.TreeMap;
  */
 public class MyPointDAO {
 
-    NavigableMap<Integer, Collection<MyPoint>> nm = new TreeMap<>();
-    Set<MyPoint> pointset = new HashSet<>();
+    NavigableMap<Integer, Collection<MyPoint>> pointMapByX = new TreeMap<>();
+    Set<MyPoint> pointSet = new HashSet<>();
 
     void create(MyPoint mp) {
-        Collection<MyPoint> colpoints = nm.get(mp.getX());
+        Collection<MyPoint> colpoints = pointMapByX.get(mp.getX());
         if (colpoints == null) {
             colpoints = new HashSet<>();
-            nm.put(mp.getX(), colpoints);
+            pointMapByX.put(mp.getX(), colpoints);
         }
-        pointset.add(mp);
+        pointSet.add(mp);
         colpoints.add(mp);
     }
 
     Collection<MyPoint> getAll() {
-        return new ArrayList<>(pointset);
+        return new ArrayList<>(pointSet);
     }
 
     void delete(MyPoint mp) {
-        pointset.remove(mp);
-        nm.get(mp.getX()).remove(mp);
+        pointSet.remove(mp);
+        pointMapByX.get(mp.getX()).remove(mp);
     }
 
     Collection<MyPoint> findPointOnX(int x) {
-        return nm.get(x);
+        return pointMapByX.get(x);
     }
 
     Collection<MyPoint> findPointInArea(int xmin, int xmax, int ymin, int ymax) {
