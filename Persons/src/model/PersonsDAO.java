@@ -14,11 +14,11 @@ import java.util.TreeMap;
  *
  * @author danecek
  */
-public class PersonsDAO {
-    
+final public class PersonsDAO {
+
     public static PersonsDAO instance = new PersonsDAO();
 
-    private SortedMap<Integer, Person> persons = new TreeMap<>();
+    private final SortedMap<Integer, Person> persons = new TreeMap<>();
     int counter;
 
     private PersonsDAO() {
@@ -30,7 +30,7 @@ public class PersonsDAO {
         Person p = new Person(++counter, name);
         persons.put(p.getId(), p);
     }
-    
+
     public List<Person> getAll() {
         return new ArrayList<>(persons.values());
     }
