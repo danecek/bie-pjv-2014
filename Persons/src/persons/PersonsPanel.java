@@ -18,10 +18,12 @@ import model.PersonsDAO;
  * @author danecek
  */
 public class PersonsPanel extends TitledPane {
+    
+    public static PersonsPanel instance = new PersonsPanel();
 
     TableView table = new TableView();
 
-    public PersonsPanel() {
+    private PersonsPanel() {
         setText("Persons Table");
         setContent(table);
         TableColumn<Person, Integer> idCol = new TableColumn<Person, Integer>("Id");
@@ -32,6 +34,11 @@ public class PersonsPanel extends TitledPane {
 
         table.getColumns().addAll(idCol, nameCol);
         table.setItems(FXCollections.observableList(PersonsDAO.instance.getAll()));
+    }
+    
+    public void refresh() {
+        table.getItems().clear();
+        table.getItems().add(PersonsDAO.instance.getAll());
     }
 
 }

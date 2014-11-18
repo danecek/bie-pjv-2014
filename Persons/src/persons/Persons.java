@@ -5,8 +5,12 @@
  */
 package persons;
 
+import controll.AddPersonAction;
+import controll.PersonsMenuBar;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.ToolBar;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -14,12 +18,16 @@ import javafx.stage.Stage;
  * @author danecek
  */
 public class Persons extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-
-        Scene scene = new Scene(new PersonsPanel(), 300, 250);
         
+        ToolBar tb = new ToolBar(AddPersonAction.instance.createButton());
+
+        VBox vbox = new VBox(new PersonsMenuBar(), tb,  PersonsPanel.instance);
+
+        Scene scene = new Scene(vbox, 300, 250);
+
         primaryStage.setTitle("Persons");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -31,5 +39,5 @@ public class Persons extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

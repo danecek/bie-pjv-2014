@@ -25,3 +25,6 @@ hs_err_pid*
 /Persons/nbproject/private/
 /Persons/build/
 /Persons/dist/
+/derbyDB/target/
+/JavaFXApplication3/nbproject/private/
+/JavaFXApplication3/build/
