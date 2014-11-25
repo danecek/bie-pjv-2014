@@ -28,3 +28,5 @@ hs_err_pid*
 /derbyDB/target/
 /JavaFXApplication3/nbproject/private/
 /JavaFXApplication3/build/
+/ThreadHW/nbproject/private/
+/ThreadHW/build/
