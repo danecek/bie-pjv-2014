@@ -31,3 +31,9 @@ hs_err_pid*
 /ThreadHW/nbproject/private/
 /ThreadHW/build/
 /JavaFXClock/nbproject/private/
+/PointClient/nbproject/private/
+/PointClient/build/
+/PointServer/nbproject/private/
+/PointServer/build/
+/PointServer/dist/
+/PointClient/dist/
